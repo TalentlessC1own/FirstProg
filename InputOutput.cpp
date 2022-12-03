@@ -157,7 +157,7 @@ int TypesOfLists()
 	return variant;
 }
 
-EMPLOYEE* GetListByYOE(EMPLOYEE* arr, int size, int Years, int &SizeOfList)
+EMPLOYEE* GetListByYOE(EMPLOYEE* arr, int size, int Years, int& SizeOfList)
 {
 	EMPLOYEE* tmp_list = new EMPLOYEE[size];
 	SizeOfList = 0;
@@ -174,7 +174,7 @@ EMPLOYEE* GetListByYOE(EMPLOYEE* arr, int size, int Years, int &SizeOfList)
 	return EndList;
 }
 
-EMPLOYEE* GetListByS(EMPLOYEE* arr, int size, int Money, int SizeOfList)			//  //
+EMPLOYEE* GetListByS(EMPLOYEE* arr, int size, int Money, int& SizeOfList)			//  //
 {
 	EMPLOYEE* tmp_list = new EMPLOYEE[size];
 	SizeOfList = 0;
@@ -192,7 +192,7 @@ EMPLOYEE* GetListByS(EMPLOYEE* arr, int size, int Money, int SizeOfList)			//  /
 	return EndList;
 }
 
-EMPLOYEE* GetListByPos(EMPLOYEE* arr, int size, std::string JobTitle, int SizeOfList)
+EMPLOYEE* GetListByPos(EMPLOYEE* arr, int size, std::string JobTitle, int& SizeOfList)
 {
 	EMPLOYEE* tmp_list = new EMPLOYEE[size];
 	SizeOfList = 0;

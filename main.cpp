@@ -61,6 +61,7 @@ int main()
 		case HowToInput::ByFile:
 		{
 			arr = File();
+			count = sizeof(*arr) / sizeof(arr[0]);
 			//std::cin.clear();
 			//std::cin.ignore(30000, '\n');
 			//ConsoleOutput(arr, count);
