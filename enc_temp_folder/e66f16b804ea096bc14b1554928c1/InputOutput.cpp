@@ -206,6 +206,7 @@ EMPLOYEE* GetListByPos(EMPLOYEE* arr, int size, std::string JobTitle, int& SizeO
 	for (int i = 0; i < SizeOfList; i++)
 	{
 		EndList[i] = tmp_list[i];
+		std::cout << EndList;
 	}
 	return EndList;
 }

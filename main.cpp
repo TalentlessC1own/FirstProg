@@ -154,6 +154,8 @@ int main()
 
 			case List::ByPos:
 			{
+				std::cin.clear();
+				std::cin.ignore();
 				std::cout << "Enter position: ";
 				std::getline(std::cin, Position_YouWant);			//
 
