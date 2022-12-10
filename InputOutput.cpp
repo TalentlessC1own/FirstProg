@@ -1,7 +1,5 @@
 #include "InputOutput.h"
 
-//#include <windows.h>
-
 void ShowGreeting()
 {
 	setlocale(LC_ALL, "rus");
@@ -63,7 +61,7 @@ EMPLOYEE* Console(int count)
 			std::cout << "Name of " << i + 1 << " Employee: " << Name << std::endl;
 			std::cout << "Patronymic of " << i + 1 << " Employee: " << Patronymic << std::endl;
 			std::cout << "Position of " << i + 1 << " Employee: " << Position << std::endl;
-			std::cout << "Years of service of " << i + 1 << " Employee: " << YearOfEmployment << std::endl;
+			std::cout << "Years of employment " << i + 1 << " Employee: " << YearOfEmployment << std::endl;
 			std::cout << "Salary of " << i + 1 << " Employee: " << Salary << std::endl << std::endl;
 
 		}return arr;
@@ -115,7 +113,7 @@ EMPLOYEE *File ()
 					std::cout << "Name of " << i + 1 << " Employee: " << Name << std::endl;
 					std::cout << "Patronymic of " << i + 1 << " Employee: " << Patronymic << std::endl;
 					std::cout << "Position of " << i + 1 << " Employee: " << Position << std::endl;
-					std::cout << "Years of service of " << i + 1 << " Employee: " << YearOfEmployment << std::endl;
+					std::cout << "Years of employment of " << i + 1 << " Employee: " << YearOfEmployment << std::endl;
 					std::cout << "Salary of " << i + 1 << " Employee: " << Salary << std::endl << std::endl;
 
 					arr[i] = EMPLOYEE(Name, LastName, Patronymic, Position, YearOfEmployment, Salary);
@@ -137,12 +135,6 @@ EMPLOYEE *File ()
 	}
 
 
-
-
-
-
-//EMPLOYEE* EndList(){}
-
 int TypesOfLists()
 {
 	int variant = 0;
@@ -157,12 +149,12 @@ int TypesOfLists()
 	return variant;
 }
 
-EMPLOYEE* GetListByYOE(EMPLOYEE* arr, int size, int Years, int& SizeOfList)
+EMPLOYEE* GetListByYOE(EMPLOYEE* arr, int size, int Years, int &SizeOfList)
 {
 	EMPLOYEE* tmp_list = new EMPLOYEE[size];
 	SizeOfList = 0;
 	for (int i = 0; i < size; i++)
-		if (arr[i].GetYearOfEmployment() > Years)
+		if (Years < 2022 - arr[i].GetYearOfEmployment())
 		{
 			tmp_list[SizeOfList] = arr[i];
 			SizeOfList++;
@@ -174,12 +166,12 @@ EMPLOYEE* GetListByYOE(EMPLOYEE* arr, int size, int Years, int& SizeOfList)
 	return EndList;
 }
 
-EMPLOYEE* GetListByS(EMPLOYEE* arr, int size, int Money, int& SizeOfList)			//  //
+EMPLOYEE* GetListByS(EMPLOYEE* arr, int size, int Money, int &SizeOfList)			//  //
 {
 	EMPLOYEE* tmp_list = new EMPLOYEE[size];
 	SizeOfList = 0;
 	for (int i = 0; i < size; i++)
-		if (arr[i].GetSalary() > Money)
+		if (Money < arr[i].GetSalary())
 		{
 			tmp_list[SizeOfList] = arr[i];
 			SizeOfList++;
@@ -192,12 +184,12 @@ EMPLOYEE* GetListByS(EMPLOYEE* arr, int size, int Money, int& SizeOfList)			//  
 	return EndList;
 }
 
-EMPLOYEE* GetListByPos(EMPLOYEE* arr, int size, std::string JobTitle, int& SizeOfList)
+EMPLOYEE* GetListByPos(EMPLOYEE* arr, int size, std::string JobTitle, int &SizeOfList)
 {
 	EMPLOYEE* tmp_list = new EMPLOYEE[size];
 	SizeOfList = 0;
 	for (int i = 0; i < size; i++)
-		if (arr[i].GetPosition() == JobTitle)						//
+		if (arr[i].GetPosition() == JobTitle)	
 		{
 			tmp_list[SizeOfList] = arr[i];
 			SizeOfList++;
@@ -206,15 +198,13 @@ EMPLOYEE* GetListByPos(EMPLOYEE* arr, int size, std::string JobTitle, int& SizeO
 	for (int i = 0; i < SizeOfList; i++)
 	{
 		EndList[i] = tmp_list[i];
+		
 	}
 	return EndList;
 }
 
 
-
-
-
-void FileOutput(EMPLOYEE* arr, std::string var, int SizeOfList)  //& added
+void FileOutput(EMPLOYEE* arr, std::string var, int SizeOfList) 
 {
 	std::ofstream fileRecorder = CheckFileOutput();
 
@@ -236,22 +226,7 @@ void FileOutput(EMPLOYEE* arr, std::string var, int SizeOfList)  //& added
 
 		fileRecorder << "Salary is " + std::to_string(arr[i].GetSalary()) + "\n" << std::endl;
 
-		//добавила, чтобы выводить на экран хз
-		//
-		//не воркает 
-		//
-		//
-		//std::cout << "Last Name of " << i + 1 << " Employee: " << arr[i].GetLastName() << std::endl;
-		//std::cout << "Name of " << i + 1 << " Employee: " << arr[i].GetName() << std::endl;
-		//std::cout << "Patronymic of " << i + 1 << " Employee: " << arr[i].GetPatronymic() << std::endl;
-		//std::cout << "Position of " << i + 1 << " Employee: " << arr[i].GetPosition() << std::endl;
-		//std::cout << "Years of service of " << i + 1 << " Employee: " << arr[i].GetYearOfEmployment() << std::endl;
-		//std::cout << "Salary of " << i + 1 << " Employee: " << arr[i].GetSalary() << std::endl << std::endl;
-		//
-		//
-		//
 	}
-
 	std::cout << "File is saved" << std::endl << std::endl;
 
 	fileRecorder.close();
@@ -274,7 +249,7 @@ void InitialFileOutput(EMPLOYEE* arr, int size)
 	}
 }
 
-void ConsoleOutput(EMPLOYEE* arr, std::string var, int SizeOfList)    //
+void ConsoleOutput(EMPLOYEE* arr, std::string var, int SizeOfList) 
 {
 	std::cout << var;
 	for (int i = 0; i < SizeOfList; i++)
@@ -294,5 +269,3 @@ void ConsoleOutput(EMPLOYEE* arr, std::string var, int SizeOfList)    //
 		std::cout << "Salary is " + std::to_string(arr[i].GetSalary()) + "\n" << std::endl;
 	}
 }
-
-

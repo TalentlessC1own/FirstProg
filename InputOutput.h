@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include <fstream> //запись с ф и чтение 
+#include <fstream>
 #include <ostream>
 
 
@@ -14,11 +14,9 @@ EMPLOYEE* Console(int count);
 EMPLOYEE* File();
 
 
-//EMPLOYEE* EndList();
-
 int TypesOfLists();
 
-EMPLOYEE* GetListByYOE(EMPLOYEE* arr, int size, int Years, int& SizeOfList);
+EMPLOYEE* GetListByYOE(EMPLOYEE* arr, int size, int Years, int &SizeOfList);
 
 EMPLOYEE* GetListByS(EMPLOYEE* arr, int size, int Money, int& SizeOfList);
 

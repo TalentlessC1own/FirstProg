@@ -6,7 +6,7 @@ int CheckInt()
 {
 	std::string valueInput;
 	int value;
-	//int devision = 0;  
+	  
 	
 
 	while (true)
@@ -24,36 +24,24 @@ int CheckInt()
 				std::cout << "Your value is:" << value << std::endl << std::endl;
 				return value;
 			}
-			//else if ((value%2)!=devision) {std::cout << "use integer, please" << std::endl;}
+			
 
 			else
 				throw value;
-				//throw "Error! Try again!";
+		
 		}
-		catch (std::exception)  //если ввести число и букву кэтч не сработает...
+		catch (std::exception)  
 		{
 
 			std::cout << " Eror... Try again! " << std::endl;
 		}
-		catch (int ex_value)  //проблема в том, что double проходит!!
+		catch (int ex_value)  
 		{
 			std::cout << ex_value << " - Uncorrect input... Try again!" << std::endl;
 		}
 
-		//catch ( char msg){std::cerr << msg << std::endl;}
+		
 	}
-
-
-
-	/*while (true) {
-		if (!(std::cin >> value) && value < 0)
-		{
-			std::cout << "try again!" << std::endl;
-
-		}
-		else std::cout << "Вы ввели значение:" << value;
-		return value;
-	}*/
 }
 
 int CheckMenuItem(int numberOfPoints)
@@ -84,9 +72,6 @@ int CheckMenuItem(int numberOfPoints)
 		}
 	}
 }
-
-
-//@
 
 std::string CheckLineString(std::ifstream& file)				
 {
