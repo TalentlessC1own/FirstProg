@@ -3,6 +3,7 @@
 #include "InputOutput.h"
 #include "CheckingFunctions.h"
 #include "MENU.h"
+#include <array>
 
 #include <windows.h>
 
@@ -60,8 +61,8 @@ int main()
 
 		case HowToInput::ByFile:
 		{
-			arr = File();
-			count = sizeof(*arr) / sizeof(arr[0]);
+			arr = File(count);
+			
 			break;
 		}
 		}

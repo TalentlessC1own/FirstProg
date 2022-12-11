@@ -11,7 +11,7 @@ void ShowGreeting();
 
 EMPLOYEE* Console(int count);
 
-EMPLOYEE* File();
+EMPLOYEE* File(int& count);
 
 
 int TypesOfLists();

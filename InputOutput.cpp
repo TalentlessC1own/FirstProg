@@ -67,13 +67,13 @@ EMPLOYEE* Console(int count)
 		}return arr;
 }
 
-EMPLOYEE *File ()
+EMPLOYEE *File (int& count)
 {
 	std::cin.clear();
 		std::cin.ignore();
 		std::string fileName = "";
 		std::ifstream file;
-		int count = 0;
+		
 
 		file.exceptions(std::ifstream::badbit | std::ifstream::failbit);
 		while (true)
