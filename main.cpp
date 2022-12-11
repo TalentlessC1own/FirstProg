@@ -140,13 +140,13 @@ int main()
 			{
 			case HowToInput::ByConsole:
 			{
-				ConsoleOutput(arr, list, SizeOfList);
+				ConsoleOutput(EndList, list, SizeOfList);
 				break;
 			}
 
 			case HowToInput::ByFile:
 			{
-				FileOutput(arr, list, SizeOfList);
+				FileOutput(EndList, list, SizeOfList);
 				break;
 			}
 			}
